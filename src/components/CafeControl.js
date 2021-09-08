@@ -7,8 +7,14 @@ class CafeControl extends React.Component {
   constructor(prop) {
     super(props);
     this.state = {
-      formVisibleOnPage: false
+      formVisibleOnPage: false,
+      masterMenu: []
     };
+  }
+
+  handleAddingNewDrinkToMenu = (newDrink) => {
+    const newMasterMenu = this.state.masterMenu.concat(newDrink);
+    this.setState({masterMenu: newMasterMenu, formVisibleOnPage:false });
   }
 
   handleClick = () => {
@@ -19,10 +25,10 @@ class CafeControl extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
     if(this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewDrinkForm />
+      currentlyVisibleState = <NewDrinkForm onNewDrinkCreation={this.handleAddingNewDrinkToMenu}/>;
       buttonText = "Return to Menu";
     } else {
-      currentlyVisibleState = <Menu />
+      currentlyVisibleState = <Menu menu={this.state.masterMenu}/>;
       buttonText = "Add Drink"
     }
     return (
@@ -33,3 +39,5 @@ class CafeControl extends React.Component {
     );
   }
 }
+
+export default CafeControl;

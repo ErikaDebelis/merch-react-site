@@ -1,9 +1,16 @@
 import React from 'react';
 import { v4 } from 'uuid';
+import PropTypes from 'prop-types';
 
-function NewDrinkForm() {
+function NewDrinkForm(props) {
   function handleNewDrinkFormSubmission(event) {
     event.preventDefault();
+    props.onNewDrinkCreation({
+      name: event.target.name.value, 
+      description: event.target.description.value, 
+      quantity: event.target.quantity.value, 
+      id: v4()
+    });
   }
   return (
     <React.Fragment>
@@ -24,5 +31,9 @@ function NewDrinkForm() {
     </React.Fragment>
   );
 }
+
+NewDrinkForm.propTypes = {
+  onNewDrinkCreation: PropTypes.func
+};
 
 export default NewDrinkForm;
