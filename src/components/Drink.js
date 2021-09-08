@@ -11,10 +11,10 @@ function Drink(props) {
   )
 }
 
-Drink.PropTypes = {
+Drink.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  quantity: PropTypes.string.isRequired,
+  quantity: PropTypes.string.isRequired
 }
 
 export default Drink;

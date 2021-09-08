@@ -4,7 +4,7 @@ import Menu from './Menu';
 
 class CafeControl extends React.Component {
 
-  constructor(prop) {
+  constructor(props) {
     super(props);
     this.state = {
       formVisibleOnPage: false,

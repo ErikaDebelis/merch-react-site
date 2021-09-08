@@ -1,12 +1,11 @@
 import React from 'react';
 import Drink from './Drink';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 function Menu(props) {
   return (
     <React.Fragment>
-      <hr/>
-      {props.Menu.map((drink, index) =>
+      {props.menu.map((drink, index) =>
       <Drink
         name={drink.name}
         description={drink.description}
@@ -18,7 +17,7 @@ function Menu(props) {
 }
 
 Menu.propTypes = {
-  menu = PropTypes.array
+  menu: PropTypes.array
 }
 
 export default Menu;
