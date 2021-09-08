@@ -16,3 +16,5 @@ Drink.PropTypes = {
   description: PropTypes.string.isRequired,
   quantity: PropTypes.string.isRequired,
 }
+
+export default Drink;
