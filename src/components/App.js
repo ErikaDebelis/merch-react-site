@@ -11,7 +11,9 @@ function App() {
     <React.Fragment>
       <div className="App">
         <Header />
+        <div className="main-body">
         <CafeControl />
+        </div>
       </div>
     </React.Fragment>
   );

@@ -3,6 +3,8 @@
 .App {
   text-align: center;
   font-family: 'Gloria Hallelujah', cursive;
+  height: 100vh;
+  margin: 0;
 }
 
 .App-logo {
@@ -38,4 +40,24 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.search {
+  padding-left: 40em;
+}
+
+.btn-success {
+  width: 8em;
+}
+
+.main-body {
+  padding: 10px 10em;
+}
+
+.button-space {
+  padding: 3em 3em;
+}
+
+.form-space {
+  padding-top: 3em; 
 }

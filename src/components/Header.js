@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
+import { Search } from 'react-bootstrap-icons';
 
 function Header() {
   return (
@@ -15,15 +16,17 @@ function Header() {
         <Button variant="outline-light" size="sm" margin="10px" href="#action3">IDK another Button</Button>
       </div>
     </Nav>
-    <Form className="d-flex">
-      <FormControl
-        type="search"
-        placeholder="Search"
-        className="mr-2"
-        aria-label="Search"
-      />
-      <Button  size="sm" margin="10px" variant="outline-success">Search</Button>
-    </Form>
+    <div className = "search">
+      <Form className="d-flex">
+        <FormControl
+          type="search"
+          placeholder="Search"
+          className="mr-2"
+          aria-label="Search"
+        />
+        <Button  size="sm" margin="0 10px" variant="success">Search <Search /></Button>
+      </Form>
+    </div>
   </Navbar>  
   );
 }
