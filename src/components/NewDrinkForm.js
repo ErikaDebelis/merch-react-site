@@ -12,6 +12,7 @@ function NewDrinkForm(props) {
       quantity: event.target.quantity.value, 
       id: v4()
     });
+    console.log('whats in here?', event.target.quantity.value);
   }
   return (
     <React.Fragment>

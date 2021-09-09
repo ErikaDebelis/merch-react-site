@@ -12,7 +12,7 @@ function DrinkDetail(props) {
       <h4>{drink.description}</h4>
       <h4>{drink.quantity}</h4>
       <button onClick = {props.onClickingEdit}>Update Drink</button>
-      <button onClick = {() => props.onClickingDelete(drink.id) }>Close Drink</button>
+      <button onClick = {() => props.onClickingDelete(drink.id) }>Remove Drink</button>
       <hr/>
     </React.Fragment>
   );
