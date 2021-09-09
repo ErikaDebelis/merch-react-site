@@ -18,7 +18,7 @@ function DrinkDetail(props) {
   );
 }
 
-DrinkDetail.PropTypes = {
+DrinkDetail.propTypes = {
   drink: PropTypes.object,
   onClickingDelete: PropTypes.func,
   onClickingEdit: PropTypes.func

@@ -2,7 +2,7 @@ import React from 'react';
 import NewDrinkForm from './NewDrinkForm';
 import Menu from './Menu';
 import DrinkDetail from './DrinkDetail';
-import EditDrinkFrom from './EditDrinkForm';
+import EditDrinkForm from './EditDrinkForm';
 
 class CafeControl extends React.Component {
 
@@ -25,7 +25,8 @@ class CafeControl extends React.Component {
     if (this.state.selectedDrink != null) {
       this.setState({
         formVisibleOnPage: false,
-        selectedDrink: null
+        selectedDrink: null,
+        editing: false
       });
     } else {
       this.setState(prevState => ({formVisibleOnPage: !prevState.formVisibleOnPage}));
@@ -66,7 +67,7 @@ class CafeControl extends React.Component {
     let buttonText = null;
 
     if(this.state.editing) {
-      currentlyVisibleState = <EditDrinkFrom 
+      currentlyVisibleState = <EditDrinkForm 
       drink = {this.state.selectedDrink} 
       onEditingDrink = {this.handleEditingDrinkInMenu} />
       buttonText = "Return to Menu";

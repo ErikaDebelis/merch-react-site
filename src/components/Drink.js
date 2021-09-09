@@ -10,7 +10,7 @@ function Drink(props) {
         <h6>{props.quantity}</h6>
       </div>
     </React.Fragment>
-  )
+  );
 }
 
 Drink.propTypes = {
@@ -19,6 +19,6 @@ Drink.propTypes = {
   quantity: PropTypes.string,
   id: PropTypes.string,
   whenDrinkClicked: PropTypes.func
-}
+};
 
 export default Drink;
