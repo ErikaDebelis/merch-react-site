@@ -50,7 +50,7 @@ class CafeControl extends React.Component {
     this.setState({editing: true});
   }
 
-  handleEditingTicketInList = (ticketToEdit) => {
+  handleEditingDrinkInMenu = (drinkToEdit) => {
     const editedMasterMenu = this.state.masterMenu
       .filter(drink => drink.id !== this.state.selectedDrink.id)
       .concat(drinkToEdit);
@@ -66,13 +66,15 @@ class CafeControl extends React.Component {
     let buttonText = null;
 
     if(this.state.editing) {
-      currentlyVisibleState = <EditDrinkFrom drink = {this.state.selectedDrink} />
+      currentlyVisibleState = <EditDrinkFrom 
+      drink = {this.state.selectedDrink} 
+      onEditingDrink = {this.handleEditingDrinkInMenu} />
       buttonText = "Return to Menu";
     }
     else if(this.state.selectedDrink != null) {
-      currentlyVisibleState = <DrinkDetail 
-      drink = {this.state.selectedDrink} 
-      onClickingDelete = {this.handleDeletingDrink} 
+      currentlyVisibleState = <DrinkDetail
+      drink = {this.state.selectedDrink}
+      onClickingDelete = {this.handleDeletingDrink}
       onClickingEdit = {this.handleEditClick} />
       buttonText = "Return to Menu";
     }
