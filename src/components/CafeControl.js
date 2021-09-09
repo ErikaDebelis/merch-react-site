@@ -1,6 +1,7 @@
 import React from 'react';
 import NewDrinkForm from './NewDrinkForm';
-import Menu from './Menu';
+import Menu from './Menu';\
+import DrinkDetail from './DrinkDetail';
 
 class CafeControl extends React.Component {
 
@@ -8,7 +9,8 @@ class CafeControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      masterMenu: []
+      masterMenu: [],
+      selectedDrink: null
     };
   }
 
@@ -21,14 +23,23 @@ class CafeControl extends React.Component {
     this.setState(prevState => ({formVisibleOnPage: !prevState.formVisibleOnPage}));
   }
 
+  handleChangingSelectedDrink = (id) => {
+    const selectedDrink = this.state.masterMenu.filter(drink => drink.id === id)[0];
+    this.setState({selectedDrink: selectedDrink});
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-    if(this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewDrinkForm onNewDrinkCreation={this.handleAddingNewDrinkToMenu}/>;
+
+    if(this.state.selectedDrink != null) {
+      currentlyVisibleState = <DrinkDetail drink = {this.state.selectedDrink} />
+    }
+    else if(this.state.formVisibleOnPage) {
+      currentlyVisibleState = <NewDrinkForm onNewDrinkCreation = {this.handleAddingNewDrinkToMenu}/>;
       buttonText = "Return to Menu";
     } else {
-      currentlyVisibleState = <Menu menu={this.state.masterMenu}/>;
+      currentlyVisibleState = <Menu menu = {this.state.masterMenu} onDrinkSelection = {this.handleChangingSelectedDrink} />;
       buttonText = "Add Drink"
     }
     return (
