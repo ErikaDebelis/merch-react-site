@@ -3,6 +3,7 @@ import NewDrinkForm from './NewDrinkForm';
 import Menu from './Menu';
 import DrinkDetail from './DrinkDetail';
 import EditDrinkForm from './EditDrinkForm';
+import Button from 'react-bootstrap/Button';
 
 class CafeControl extends React.Component {
 
@@ -90,7 +91,7 @@ class CafeControl extends React.Component {
     return (
       <React.Fragment>
         {currentlyVisibleState}
-        <button onClick={this.handleClick}>{buttonText}</button>
+        <Button variant="outline-secondary" size="md" onClick={this.handleClick}>{buttonText}</Button>
       </React.Fragment>
     );
   }
