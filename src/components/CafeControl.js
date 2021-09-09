@@ -2,6 +2,7 @@ import React from 'react';
 import NewDrinkForm from './NewDrinkForm';
 import Menu from './Menu';
 import DrinkDetail from './DrinkDetail';
+import EditDrinkFrom from './EditDrinkForm';
 
 class CafeControl extends React.Component {
 
@@ -49,11 +50,26 @@ class CafeControl extends React.Component {
     this.setState({editing: true});
   }
 
+  handleEditingTicketInList = (ticketToEdit) => {
+    const editedMasterMenu = this.state.masterMenu
+      .filter(drink => drink.id !== this.state.selectedDrink.id)
+      .concat(drinkToEdit);
+    this.setState({
+      masterMenu: editedMasterMenu,
+      editing: false,
+      selectedDrink: null
+    });
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if(this.state.selectedDrink != null) {
+    if(this.state.editing) {
+      currentlyVisibleState = <EditDrinkFrom drink = {this.state.selectedDrink} />
+      buttonText = "Return to Menu";
+    }
+    else if(this.state.selectedDrink != null) {
       currentlyVisibleState = <DrinkDetail 
       drink = {this.state.selectedDrink} 
       onClickingDelete = {this.handleDeletingDrink} 
