@@ -1,6 +1,6 @@
 import React from 'react';
 import NewDrinkForm from './NewDrinkForm';
-import Menu from './Menu';\
+import Menu from './Menu';
 import DrinkDetail from './DrinkDetail';
 
 class CafeControl extends React.Component {
@@ -10,7 +10,8 @@ class CafeControl extends React.Component {
     this.state = {
       formVisibleOnPage: false,
       masterMenu: [],
-      selectedDrink: null
+      selectedDrink: null,
+      editing: false
     };
   }
 
@@ -43,12 +44,20 @@ class CafeControl extends React.Component {
     });
   }
 
+  handleEditClick = () => {
+    console.log("handleEditClick reached!");
+    this.setState({editing: true});
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
 
     if(this.state.selectedDrink != null) {
-      currentlyVisibleState = <DrinkDetail drink = {this.state.selectedDrink} onClickingDelete = {this.handleDeletingDrink} />
+      currentlyVisibleState = <DrinkDetail 
+      drink = {this.state.selectedDrink} 
+      onClickingDelete = {this.handleDeletingDrink} 
+      onClickingEdit = {this.handleEditClick} />
       buttonText = "Return to Menu";
     }
     else if(this.state.formVisibleOnPage) {

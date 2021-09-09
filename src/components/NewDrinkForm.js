@@ -15,20 +15,9 @@ function NewDrinkForm(props) {
   }
   return (
     <React.Fragment>
-      <form onSubmit={handleNewDrinkFormSubmission}>
-      <input
-        type="text"
-        name="name"
-        placeholder="Name" />
-      <input
-        type="text"
-        name="description"
-        placeholder="Description" />
-      <input
-        type="text"
-        name="quantity"
-        placeholder="Quantity" />
-      </form>
+      <ReuseableForm
+        formSubmissionHandler={handleNewDrinkFormSubmission}
+        buttonText="Help" />
     </React.Fragment>
   );
 }
