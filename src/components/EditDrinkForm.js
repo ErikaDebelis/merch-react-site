@@ -1,8 +1,10 @@
 import React from 'react';
-import ReusableForm from './ReuseableForm';
+import PropTypes from 'prop-types';
+import ReusableForm from './ReusableForm';
 
 function EditDrinkForm (props) {
   const { drink } = props;
+
   function handleEditDrinkFormSubmission(event) {
     event.preventDefault();
     props.onEditDrink({
@@ -20,6 +22,11 @@ function EditDrinkForm (props) {
       buttonText = "Update Drink" />
     </React.Fragment>
   );
+}
+
+EditDrinkForm.propTypes = {
+  drink: PropTypes.object,
+  onEditDrink: PropTypes.func
 }
 
 export default EditDrinkForm;

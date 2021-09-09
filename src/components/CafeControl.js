@@ -47,8 +47,9 @@ class CafeControl extends React.Component {
   }
 
   handleEditClick = () => {
-    console.log("handleEditClick reached!");
-    this.setState({editing: true});
+    this.setState({
+      editing: true
+    });
   }
 
   handleEditingDrinkInMenu = (drinkToEdit) => {
@@ -68,15 +69,15 @@ class CafeControl extends React.Component {
 
     if(this.state.editing) {
       currentlyVisibleState = <EditDrinkForm 
-      drink = {this.state.selectedDrink} 
-      onEditingDrink = {this.handleEditingDrinkInMenu} />
+        drink = {this.state.selectedDrink} 
+        onEditDrink = {this.handleEditingDrinkInMenu} />
       buttonText = "Return to Menu";
     }
-    else if(this.state.selectedDrink != null) {
+    else if(this.state.selectedDrink !== null) {
       currentlyVisibleState = <DrinkDetail
-      drink = {this.state.selectedDrink}
-      onClickingDelete = {this.handleDeletingDrink}
-      onClickingEdit = {this.handleEditClick} />
+        drink = {this.state.selectedDrink}
+        onClickingDelete = {this.handleDeletingDrink}
+        onClickingEdit = {this.handleEditClick} />
       buttonText = "Return to Menu";
     }
     else if(this.state.formVisibleOnPage) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { v4 } from 'uuid';
 import PropTypes from 'prop-types';
-import ReuseableForm from "./ReuseableForm";
+import ReuseableForm from "./ReusableForm";
 
 function NewDrinkForm(props) {
   function handleNewDrinkFormSubmission(event) {

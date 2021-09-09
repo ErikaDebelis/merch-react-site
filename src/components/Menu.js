@@ -5,8 +5,10 @@ import PropTypes from 'prop-types';
 function Menu(props) {
   return (
     <React.Fragment>
-      {props.menu.map((drink, index) =>
+      <hr/>
+      {props.menu.map((drink) =>
       <Drink
+        whenDrinkClicked = { props.onDrinkSelection }
         name = {drink.name}
         description = {drink.description}
         quantity = {drink.quantity} 
