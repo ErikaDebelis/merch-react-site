@@ -20,7 +20,14 @@ class CafeControl extends React.Component {
   }
 
   handleClick = () => {
-    this.setState(prevState => ({formVisibleOnPage: !prevState.formVisibleOnPage}));
+    if (this.state.selectedDrink != null) {
+      this.setState({
+        formVisibleOnPage: false,
+        selectedDrink: null
+      });
+    } else {
+      this.setState(prevState => ({formVisibleOnPage: !prevState.formVisibleOnPage}));
+    }
   }
 
   handleChangingSelectedDrink = (id) => {
@@ -28,12 +35,21 @@ class CafeControl extends React.Component {
     this.setState({selectedDrink: selectedDrink});
   }
 
+  handleDeletingDrink = (id) => {
+    const newMasterMenu = this.state.masterMenu.filter(drink => drink.id !== id);
+    this.setState({
+      masterMenu: newMasterMenu,
+      selectedDrink: null
+    });
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
 
     if(this.state.selectedDrink != null) {
-      currentlyVisibleState = <DrinkDetail drink = {this.state.selectedDrink} />
+      currentlyVisibleState = <DrinkDetail drink = {this.state.selectedDrink} onClickingDelete = {this.handleDeletingDrink} />
+      buttonText = "Return to Menu";
     }
     else if(this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewDrinkForm onNewDrinkCreation = {this.handleAddingNewDrinkToMenu}/>;
