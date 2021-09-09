@@ -5,9 +5,9 @@ function Drink(props) {
   return (
     <React.Fragment>
       <div onClick = {() => props.whenDrinkClicked(props.id)}>
-        <h3>{props.description} - {props.name}</h3>
-        <p><em>{props.quantity}</em></p>
-        <hr/>
+        <h3>{props.name}</h3>
+        <h6>{props.description}</h6>
+        <h6>{props.quantity}</h6>
       </div>
     </React.Fragment>
   )
